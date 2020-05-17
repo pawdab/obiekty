@@ -2,6 +2,7 @@
 
 import random
 
+from datetime import date
 from faker import Faker
 fake = Faker()
 
@@ -141,9 +142,12 @@ for item in tv_only:
 
 search(list[2].title)
 
-top_titles_list = top_titles(1)
+top_titles_list = top_titles(3)
 
-print("top lista")
+today = date.today()
+date = today.strftime("%d.%m.%Y")
+
+print("top lista na dziś (" + str(date) + ")")
 for item in top_titles_list:
     print(item)
 
