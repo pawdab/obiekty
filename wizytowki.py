@@ -1,3 +1,5 @@
+# niestety mam totalnie urwanie głowy w pracy więc mogę zrobić zadania tylko po łebkach i wersja minimum
+
 import random
 #import Faker
 
