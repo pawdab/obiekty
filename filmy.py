@@ -151,4 +151,3 @@ print("top list_vara na dziś (" + str(date) + ")")
 for item in top_titles_list_var:
     print(item)
 
-print(f"Martyna jest zasjebista")
