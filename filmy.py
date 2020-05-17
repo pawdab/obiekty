@@ -107,8 +107,8 @@ def top_titles(x):
 
 list_var = []
 
-add_TV(100)
-add_Movie(300)
+add_TV(10)
+add_Movie(30)
 generate_views_run()
 
 #for movies in list_var:
@@ -151,3 +151,4 @@ print("top list_vara na dziś (" + str(date) + ")")
 for item in top_titles_list_var:
     print(item)
 
+print(f"Martyna jest zasjebista")
