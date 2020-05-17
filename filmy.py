@@ -50,7 +50,7 @@ def add_TV(x):
         if len(new_episode) == 1:
             new_episode = "0" + new_episode
         new_TV_series = TvSeries(season = new_season, episode= new_episode,title = new_TV_title, release_year = new_TV_year, genre = new_TV_genre)
-        list.append(new_TV_series)
+        list_var.append(new_TV_series)
         i = i + 1
 
 def add_Movie(x):
@@ -60,35 +60,35 @@ def add_Movie(x):
         new_movie_genre = genre_generator()
         new_season = "0" + str(random.randint(1,5))
         new_movie = Movie(title = new_movie_title, release_year = new_movie_year, genre = new_movie_genre)
-        list.append(new_movie)
+        list_var.append(new_movie)
         i = i + 1
 
-def get_movies(list):
-    movie_list = []
-    for items in list:
+def get_movies(list_var):
+    movie_list_var = []
+    for items in list_var:
         if type(items) == Movie:
-            movie_list.append(items)
-    movie_list = sorted(movie_list, key=lambda movie: movie.title)
-    return movie_list
+            movie_list_var.append(items)
+    movie_list_var = sorted(movie_list_var, key=lambda movie: movie.title)
+    return movie_list_var
 
-def get_TV_series(list):
-    tv_list = []
-    for items in list:
+def get_TV_series(list_var):
+    tv_list_var = []
+    for items in list_var:
         if type(items) == TvSeries:
-            tv_list.append(items)
-    tv_list = sorted(tv_list, key=lambda tv: tv.title)
-    return tv_list
+            tv_list_var.append(items)
+    tv_list_var = sorted(tv_list_var, key=lambda tv: tv.title)
+    return tv_list_var
 
 def search(title):
-    for item in list:
+    for item in list_var:
         if item.title == title:
             print("Znalazłem")
             print (item)
 
 
 # wiem, że ofektywniej było by movie_tv.play_times = random.... ale skoro mam play to się nim bawie
-def generate_views(list):
-    movie_tv = list[random.randint(0,len(list)-1)]
+def generate_views(list_var):
+    movie_tv = list_var[random.randint(0,len(list_var)-1)]
     for i in range (1, random.randint(1,100)):
         if random.randint(0,1) == 1:
             movie_tv.play()
@@ -97,21 +97,21 @@ def generate_views(list):
 
 def generate_views_run():
         for i in range(1,100):
-            generate_views(list)
+            generate_views(list_var)
             i = i + 1
 
 def top_titles(x):
-    top_titles = sorted(list, key=lambda movie: movie.play_times, reverse=True)
+    top_titles = sorted(list_var, key=lambda movie: movie.play_times, reverse=True)
     top_titles = top_titles[0:x]
     return top_titles
 
-list = []
+list_var = []
 
 add_TV(100)
 add_Movie(300)
 generate_views_run()
 
-#for movies in list:
+#for movies in list_var:
 #    print(movies)
 #    print(movies.play_times)
 #    for i in range (1,10):
@@ -119,16 +119,16 @@ generate_views_run()
 #            movies.play()
 #        i = i + 1
 
-#for movies in list:
+#for movies in list_var:
 #    print(movies)
 #    print(movies.play_times)
 
 
-movies_only = get_movies(list)
-tv_only = get_TV_series(list)
+movies_only = get_movies(list_var)
+tv_only = get_TV_series(list_var)
 
 print("all:")
-for item in list:
+for item in list_var:
     print(item)
 
 print("filmy:")
@@ -140,14 +140,14 @@ for item in tv_only:
     print(item)
 
 
-search(list[2].title)
+search(list_var[2].title)
 
-top_titles_list = top_titles(3)
+top_titles_list_var = top_titles(3)
 
 today = date.today()
 date = today.strftime("%d.%m.%Y")
 
-print("top lista na dziś (" + str(date) + ")")
-for item in top_titles_list:
+print("top list_vara na dziś (" + str(date) + ")")
+for item in top_titles_list_var:
     print(item)
 
